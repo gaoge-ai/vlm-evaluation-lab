@@ -1,0 +1,288 @@
+﻿image_id,question_id,image_type,skill_type,answer_type,difficulty,question,expected_answer,model_name,model_answer,score,error_type,comment
+architecture_01,architecture_01_q1,academic_figure,scientific_figure,short_text,medium,图中 BERT 的预训练部分包含哪两个顶部任务标签？,包含 NSP 和 Mask LM 两个任务标签。,OpenGVLab/InternVL3-2B-hf,"Observation:
+The image shows the BERT model during pre-training and fine-tuning. The top part of the BERT model in both pre-training and fine-tuning sections has two labels: ""NSP"" and ""Mask LM"".
+
+Reasoning:
+- ""NSP"" stands for ""Next Sentence Prediction,"" which is used to predict whether two sentences are adjacent or not.
+- ""Mask LM"" stands for ""Masked Language Model,"" which involves randomly masking some tokens in the input and predicting the original tokens.
+
+Final Answer: BERT 的预训练部分包含 ""NSP"" 和 ""Mask LM"" 两个顶部任务标签。",2,Correct,正确识别 BERT 预训练部分的 NSP 和 Mask LM 两个任务标签。
+architecture_02,architecture_02_q1,academic_figure,zero_shot_reasoning,short_text,medium,在右侧 zero-shot prediction 部分，图像特征最终匹配到的文本类别是什么？,匹配到 dog，对应输出是“A photo of a dog.”。,OpenGVLab/InternVL3-2B-hf,"Observation:
+在右侧 zero-shot prediction 部分，图像特征最终匹配到的文本类别是“dog”。
+
+Reasoning:
+在右侧的 zero-shot prediction 部分，输入的是一张狗的照片。图像特征被传递给文本编码器，文本编码器将图像特征与文本标签（如“dog”）进行匹配。因此，最终匹配到的文本类别是“dog”。
+
+Final Answer: dog",2,Correct,正确识别 zero-shot prediction 中图像最终匹配到 dog 类别。
+architecture_03,architecture_03_q1,academic_figure,architecture_understanding,evidence_based_reasoning,medium,图中 Noised Latent 在进入 DiT Block 之前经过了哪一步处理？,Noised Latent 先经过 Patchify 处理；timestep 和 label 也通过 Embed 输入到 DiT Block。,OpenGVLab/InternVL3-2B-hf,"Observation:
+The diagram shows that the Noised Latent is first passed through a ""Linear and Reshape"" step before entering the DiT Block.
+
+Reasoning:
+The ""Linear and Reshape"" block is explicitly shown in the left part of the figure, indicating that it processes the Noised Latent tensor before it is fed into the DiT Block.
+
+Final Answer: Linear and Reshape",0,Architecture Misreading,问题询问 Noised Latent 进入 DiT Block 前经过哪一步，expected_answer 为 Patchify，但模型回答 Linear and Reshape，关键步骤判断错误。
+architecture_04,architecture_04_q1,academic_figure,architecture_understanding,short_text,medium,图中 InternVL3.5-Flash 相比 InternVL3.5 额外增加了哪个用于动态选择压缩率的模块？,额外增加了 Visual Resolution Router（ViR）。,OpenGVLab/InternVL3-2B-hf,"Observation:
+The figure shows that InternVL3.5-Flash is an extension of InternVL3.5 with an additional visual resolution router. This router is used to dynamically select the appropriate compression rate for each image patch.
+
+Reasoning:
+The text in the figure explicitly mentions that InternVL3.5-Flash is extended with an additional visual resolution router. This router is used to dynamically adjust the compression rate based on the semantic content of the image, unlike the Dynamic High Resolution which only splits image patches based on image width and height.
+
+Final Answer: 视觉分辨率路由器",2,Correct,正确识别 InternVL3.5-Flash 额外增加 Visual Resolution Router（ViR），中文表达“视觉分辨率路由器”可接受。
+architecture_05,architecture_05_q1,academic_figure,visual_reasoning,evidence_based_reasoning,medium,这张 MAE 架构图中，decoder 的主要目标是什么？,decoder 使用编码后的可见 patch 和 mask token 来重建原始图像像素，也就是右侧的 target 图像。,OpenGVLab/InternVL3-2B-hf,"Observation:
+The MAE architecture diagram shows that after the encoder processes the visible patches, mask tokens are introduced. These tokens are then processed by a small decoder, which is discarded after pre-training. The decoder's role is to reconstruct the original image in pixels.
+
+Reasoning:
+The decoder's primary function, as depicted in the diagram, is to reconstruct the original image from the encoded patches and mask tokens. This is evident from the flow of the diagram, where the decoder takes the processed patches and mask tokens and attempts to recreate the image.
+
+Final Answer: The decoder's main goal is to reconstruct the original image in pixels.",2,Correct,正确说明 MAE decoder 的目标是重建原始图像像素。
+architecture_06,architecture_06_q1,academic_figure,hallucination_risk,no_answer,hard,图中是否给出了 Selective State Space Model 的训练数据集名称？,没有。图中展示的是模型结构和 GPU 存储层级，没有提供训练数据集名称。,OpenGVLab/InternVL3-2B-hf,"Observation:
+图中没有给出 Selective State Space Model 的训练数据集名称。
+
+Reasoning:
+图中展示了 Selective State Space Model 的结构和工作原理，包括输入 \( x_t \)、输出 \( y_t \)、中间状态 \( h_t \)、参数 \( A \)、\( B \)、\( C \) 等，但没有显示任何关于训练数据集名称的信息。
+
+Final Answer: 图中无法判断。",2,Correct,正确判断图中没有提供训练数据集名称，没有进行无依据猜测。
+architecture_07,architecture_07_q1,academic_figure,multimodal_architecture,short_text,medium,图中视觉编码器处理的多模态输入主要包括哪两类？,主要包括 images 和 videos，也就是图片和视频。,OpenGVLab/InternVL3-2B-hf,"Observation:
+The figure shows that the Qwen2.5-VL framework integrates a vision encoder and a language model decoder to process multimodal inputs, including images and videos. The visual encoder is designed to handle inputs at their native resolution and supports dynamic FPS sampling. The processed visual data is then fed into the Qwen2.5 LM Decoder.
+
+Reasoning:
+The figure explicitly mentions that the visual encoder processes images and videos, indicating that it handles both image and video inputs. The caption also states that the framework supports dynamic FPS sampling, which is relevant to video processing.
+
+Final Answer: 图中视觉编码器处理的多模态输入主要包括图像和视频两类。",2,Correct,正确识别视觉编码器处理的多模态输入主要包括图像和视频。
+architecture_08,architecture_08_q1,academic_figure,architecture_comparison,short_text,medium,图中哪一种结构在不同层级展示了 4x、8x、16x 的层次化特征图？,Swin Transformer（ours）展示了 4x、8x、16x 的层次化特征图。,OpenGVLab/InternVL3-2B-hf,"Observation:
+The figure shows two different architectures: Swin Transformer (ours) and ViT (Vision Transformer). The layers are divided into classification, segmentation detection, and classification.
+
+Reasoning:
+- The Swin Transformer (ours) shows a clear 4x, 8x, and 16x scaling in the bottom row of the figure.
+- The ViT (Vision Transformer) shows a 16x scaling in the top row of the figure.
+
+Final Answer: Swin Transformer (ours)",2,Correct,正确识别 Swin Transformer（ours）展示了层次化特征图结构。
+chart_01,chart_01_q1,chart,chart_understanding,short_text,easy,图中降雨量最高的月份是哪一个，数值是多少？,6 月（Jun）最高，降雨量为 180 mm。,OpenGVLab/InternVL3-2B-hf,"Observation:
+Reasoning:
+The bar chart shows the average monthly rainfall in Metropolis for the year 2023. The highest bar corresponds to the month of June, with a rainfall value of 180 mm.
+
+Final Answer: June, 180 mm",2,Correct,正确识别降雨量最高月份为 June，数值为 180 mm。
+chart_02,chart_02_q1,chart,chart_understanding,short_text,easy,图中平均温度最高的月份是哪一个，温度是多少？,7 月（Jul）最高，温度为 32°C。,OpenGVLab/InternVL3-2B-hf,"Observation:
+The graph shows the average monthly temperature in Metropolis for the year 2023. The highest temperature is marked at the peak of the line graph, which occurs in July.
+
+Reasoning:
+- The graph displays a line that rises and falls over the months.
+- The highest point on the line corresponds to the month of July, where the temperature is marked as 32°C.
+
+Final Answer: July, 32°C",2,Correct,正确识别平均温度最高月份为 July，温度为 32°C。
+chart_03,chart_03_q1,chart,stacked_chart_understanding,short_text,medium,图中全年总能耗最高的是哪个月份，总量是多少？,8 月（Aug）最高，总能耗为 300 kWh。,OpenGVLab/InternVL3-2B-hf,"Observation:
+Reasoning:
+To determine the month with the highest total energy consumption, we need to sum the energy consumption for each month from January to December. The bar chart shows the monthly energy consumption for residential, commercial, and industrial sources.
+
+Final Answer: 
+Observation: The month with the highest total energy consumption is August, with a total of 300 kWh.
+Reasoning: By summing the energy consumption for each month, we can see that August has the highest bar, indicating the highest total energy consumption for the year.
+Final Answer: August, 300 kWh.",2,Correct,正确识别总能耗最高月份为 August，数值为 300 kWh。
+chart_04,chart_04_q1,chart,chart_comparison,short_text,medium,在 SNR = -4 dB 时，哪条模型曲线的准确率最高？,mobilevit 的准确率最高。,OpenGVLab/InternVL3-2B-hf,"Observation:
+In the provided graph, the accuracy of different models under specific SNR training is plotted. The SNR is measured in decibels (dB), and the accuracy is given as a percentage.
+
+Reasoning:
+- The graph shows four models: mobilelevit, mobilenetv2, swin, and resnet50, each represented by a different colored line.
+- At SNR = -4 dB, the accuracy of the mobilelevit model is the highest, as indicated by the pink line being the highest among all the models at this point.
+
+Final Answer: mobilelevit",1,Partially Correct,模型回答 mobilelevit，基本接近 expected_answer 中的 mobilevit，但模型名称拼写不准确，因此记为部分正确。
+chart_05,chart_05_q1,chart,chart_comparison,short_text,easy,图中平均测试准确率最高的模型是哪一个，数值是多少？,resnet50 最高，平均测试准确率为 97.79%。,OpenGVLab/InternVL3-2B-hf,"Observation:
+The bar chart shows the average test accuracy under noisy conditions for different models. The highest average test accuracy is for the ""resnet50"" model, which is 97.79%.
+
+Reasoning:
+By examining the heights of the bars in the chart, it is clear that the ""resnet50"" model has the tallest bar, indicating the highest average test accuracy among the models listed.
+
+Final Answer: resnet50, 97.79%",2,Correct,正确识别平均测试准确率最高模型为 resnet50，数值为 97.79%。
+chart_06,chart_06_q1,chart,scatter_plot_understanding,short_text,medium,散点图中参数量最大的模型是哪一个？,swin_tiny_patch4_window7_224，也就是图中标注的 swin。,OpenGVLab/InternVL3-2B-hf,"Observation:
+The scatter plot shows the relationship between model size (in millions of parameters) and clean accuracy for different models. The x-axis represents the number of parameters, and the y-axis represents the test accuracy percentage.
+
+Reasoning:
+- The model with the highest number of parameters is ""mobilelevit_s,"" which is represented by the blue dot at the far right of the x-axis.
+- The model with the second highest number of parameters is ""resnet50,"" represented by the red dot.
+- The model with the third highest number of parameters is ""vit_tiny_patch16_224,"" represented by the purple dot.
+- The model with the lowest number of parameters is ""vit,"" represented by the light purple dot.
+
+Final Answer: The model with the highest number of parameters is ""mobilelevit_s.""",0,Chart Misinterpretation,散点图中参数量最大的模型应为 swin，但模型误判为 mobilelevit_s。
+OCR_01,OCR_01_q1,ocr_document,OCR,short_text,easy,截图中的主标题是什么？,MLLM Research RAG Assistant。,OpenGVLab/InternVL3-2B-hf,"Observation:
+The main title in the screenshot is ""MLLM Research RAG Assistant.""
+
+Reasoning:
+The screenshot shows a README.md file with a section titled ""1. 项目背景与动机"" which translates to ""1. Project Background and Motivation."" The main title is clearly visible in this section.
+
+Final Answer: MLLM Research RAG Assistant",2,Correct,正确识别截图主标题 MLLM Research RAG Assistant。
+OCR_02,OCR_02_q1,ocr_code_screenshot,code_OCR,number,medium,代码截图中 DEFAULT_TOP_K 的值是多少？,DEFAULT_TOP_K 的值是 6。,OpenGVLab/InternVL3-2B-hf,"Observation:
+The code snippet shows the line `DEFAULT_TOP_K = 6`.
+
+Reasoning:
+The line `DEFAULT_TOP_K = 6` is clearly visible in the code, indicating the value of `DEFAULT_TOP_K`.
+
+Final Answer: 6",2,Correct,正确读取代码中 DEFAULT_TOP_K 的值为 6。
+OCR_03,OCR_03_q1,ocr_paper,academic_OCR,short_text,easy,论文标题中提到的图像 patch 大小是多少？,标题中提到的 patch 大小是 16x16。,OpenGVLab/InternVL3-2B-hf,"Observation:
+The paper mentions ""16x16 words"" in the title, which refers to the image patch size.
+
+Reasoning:
+The title of the paper states ""AN IMAGE IS WORTH 16X16 WORDS,"" indicating that the image patch size is 16x16.
+
+Final Answer: 16x16",2,Correct,正确从论文标题 An Image is Worth 16x16 Words 中提取出 patch 大小 16x16。
+OCR_04,OCR_04_q1,ocr_document,Chinese_OCR,short_text,medium,通知落款日期是什么？,落款日期是 2026 年 4 月 16 日。,OpenGVLab/InternVL3-2B-hf,"Observation:
+The notification is dated ""2026年4月16日"" (April 16, 2026).
+
+Reasoning:
+The date is clearly mentioned at the bottom of the document, indicating the specific date of the notice.
+
+Final Answer: 2026年4月16日",2,Correct,正确识别通知落款日期为 2026 年 4 月 16 日。
+OCR_05,OCR_05_q1,ocr_paper,academic_OCR,number,medium,摘要中提到该方法在无噪声测试集上的测试准确率是多少？,无噪声测试集上的测试准确率是 100.00%。,OpenGVLab/InternVL3-2B-hf,"Observation:
+在摘要中，提到该方法在无噪声测试集上的测试准确率为100.00%。
+
+Reasoning:
+摘要中明确指出：“实验结果表明，该方法在无噪声测试集上达到100.00%的测试准确率。”
+
+Final Answer: 100.00%",2,Correct,正确读取摘要中无噪声测试集准确率为 100.00%。
+OCR_06,OCR_06_q1,ocr_bilingual_document,bilingual_OCR,short_text,medium,蓝色英文段落开头自我介绍的老师姓什么？,老师姓 Wang，英文写作 Mr. Wang。,OpenGVLab/InternVL3-2B-hf,"Observation:
+The text mentions ""我是王老师"" which translates to ""I am Mr. Wang.""
+
+Reasoning:
+The text begins with a greeting and introduces the speaker as ""王老师,"" which is a Chinese name for ""Mr. Wang.""
+
+Final Answer: 王",2,Correct,正确识别老师姓王；虽然未写英文 Wang，但问题询问姓氏，答案可接受。
+scene_01,scene_01_q1,scene_photo,object_recognition,short_text,easy,图中人手里拿着的红色物品是什么？,人手里拿着一个红色保温杯或水杯。,OpenGVLab/InternVL3-2B-hf,"Observation:
+The image shows a person holding a red cylindrical object with a design that includes the text ""Gryffindor"" and ""Hogwarts"" along with a crest. There are also yellow and white stripes on the object.
+
+Reasoning:
+The design on the object clearly indicates it is related to the Harry Potter series, specifically Gryffindor, one of the four houses at Hogwarts School of Witchcraft and Wizardry. The text and crest are typical of the Gryffindor house emblem.
+
+Final Answer: The red cylindrical object in the image is a Harry Potter-themed item, likely a cup or container, associated with the Gryffindor house.",1,Partially Correct,模型识别到这是杯子或容器，但加入 Harry Potter/Gryffindor 等无关细节，且没有明确回答红色保温杯或水杯。
+scene_02,scene_02_q1,scene_photo,scene_OCR,short_text,medium,墙上装裱的书法作品主要写着哪四个大字？,主要写着“大音希声”。,OpenGVLab/InternVL3-2B-hf,"Observation:
+The image shows a framed calligraphy piece with Chinese characters written in black ink. The characters are large and prominently displayed.
+
+Reasoning:
+The characters are clearly visible and the frame is around the artwork, indicating that the focus is on the calligraphy.
+
+Final Answer: The four large characters in the calligraphy are ""静佛音火"" (Jìng Fó Yīn Huǒ).",0,OCR Error,将书法作品“大音希声”误读为“静佛音火”，中文书法 OCR 失败。
+scene_03,scene_03_q1,scene_photo,counting,number,easy,图中有几块正在显示湖景桌面的屏幕？,有两块屏幕：一台笔记本屏幕和一台外接显示器。,OpenGVLab/InternVL3-2B-hf,"Observation:
+The image shows a desk setup with two computer monitors. One monitor is placed on a stand and displays a landscape image of a lake and mountains, while the other monitor is on a laptop, also showing the same lake and mountains desktop wallpaper.
+
+Reasoning:
+- The monitor on the stand clearly shows the same desktop wallpaper as the laptop.
+- The laptop screen is also displaying the same desktop wallpaper.
+
+Final Answer: There are two screens displaying the lake and mountains desktop wallpaper.",2,Correct,正确判断图中有两块正在显示湖景桌面的屏幕。
+scene_04,scene_04_q1,scene_photo,hallucination_risk,no_answer,medium,仅凭这张建筑照片，能否确定拍摄城市的准确名称？,不能。图中没有清晰提供足以确定拍摄城市的文字或地标信息。,OpenGVLab/InternVL3-2B-hf,"Observation:
+The image shows a cityscape with several modern high-rise buildings, some with illuminated signs. However, without specific identifiable landmarks or distinctive features, it is not possible to determine the exact name of the city.
+
+Reasoning:
+The buildings have a modern architectural style, but there are no clear signs or logos that would indicate a specific city. The lighting and time of day also do not provide enough context to identify the location.
+
+Final Answer: No, the image alone does not allow for the determination of the city's name.",2,Correct,正确判断仅凭建筑照片无法确定准确城市名称，没有幻觉。
+scene_05,scene_05_q1,scene_photo,scene_OCR,short_text,easy,图片中的影碟或包装属于哪个电影系列？,属于 The Lord of the Rings（指环王）系列。,OpenGVLab/InternVL3-2B-hf,"Observation:
+The image shows several covers of ""The Lord of the Rings: The Motion Picture Trilogy"" Extended Editions. The covers feature artwork from the films and a certificate of completion for the marathon challenge.
+
+Reasoning:
+- The title ""The Lord of the Rings"" is prominently displayed on each cover.
+- The text ""Extended Editions"" indicates that these are special editions of the films.
+- The certificate mentions ""The Lord of the Rings"" and references the marathon challenge, which is a known event related to the trilogy.
+
+Final Answer: The image shows Extended Editions of ""The Lord of the Rings: The Motion Picture Trilogy.""",2,Correct,正确识别影碟或包装属于 The Lord of the Rings 系列。
+scene_06,scene_06_q1,scene_photo,spatial_reasoning,yes_no,easy,图中粉色盖子的容器旁边是否能看到金属门把手或门锁？,是。粉色盖子的容器旁边能看到金属门把手或门锁。,OpenGVLab/InternVL3-2B-hf,"Observation:
+In the image, there is a pink container with a frothy top, and next to it, there is a small card with a metal pin. The metal pin appears to be attached to a door or a similar object, but it is not clearly visible whether it is a door handle or a lock.
+
+Reasoning:
+The metal pin is attached to a card, which suggests it is likely a door handle or a similar mechanism. The pin is used to secure the card in place, which is common for doors or cabinets.
+
+Final Answer: Yes, the metal pin is attached to a door or a similar object, which appears to be a door handle or a lock.",2,Correct,正确判断粉色盖子容器旁边可见金属门把手或门锁。
+scene_07,scene_07_q1,poster_photo,scene_OCR,short_text,easy,海报上的电影名称是什么？,电影名称是 F1 The Movie。,OpenGVLab/InternVL3-2B-hf,"Observation:
+The poster prominently displays the title ""THE MOVIE"" in the center.
+
+Reasoning:
+The text ""THE MOVIE"" is clearly visible in the middle of the poster, indicating the name of the movie.
+
+Final Answer: THE MOVIE",1,OCR Error,只识别出 THE MOVIE，遗漏关键的 F1，电影名称不完整。
+scene_08,scene_08_q1,scene_photo,object_recognition,short_text,easy,这些水果串主要放在什么颜色的托盘或盒子上？,主要放在白色托盘或白色盒子上。,OpenGVLab/InternVL3-2B-hf,"Observation:
+The image shows a box containing several fruit skewers. The box is white with red accents.
+
+Reasoning:
+The fruit skewers are placed inside a white box with red edges. The box is open, revealing the skewers inside.
+
+Final Answer: The fruit skewers are placed on a white box with red accents.",2,Correct,正确识别水果串主要放在白色盒子或托盘上。
+scene_09,scene_09_q1,scene_photo,handwritten_OCR,short_text,medium,纸上手写英文句子的开头两个词是什么？,开头两个词是“if you”。,OpenGVLab/InternVL3-2B-hf,"Observation:
+The image shows a person holding a notebook with a handwritten English sentence on it.
+
+Reasoning:
+The visible part of the sentence reads ""if you fail,"" which is the first two words.
+
+Final Answer: if you fail",2,Correct,模型回答 if you fail，虽然多给了一个词，但正确包含开头两个词 if you。
+table_01,table_01_q1,table,table_understanding,evidence_based_reasoning,medium,标签为 Inner_Race_014 的样本对应的故障位置和损伤直径是多少？,故障位置为内圈，损伤直径为 0.014 inch。,OpenGVLab/InternVL3-2B-hf,"Observation:
+The table shows a dataset with various parameters and labels. The label ""Inner_Race_014"" corresponds to a sample where the fault position is ""内圈"" (inner ring) and the damage diameter is 0.014 inches.
+
+Reasoning:
+- The table lists different fault positions and their corresponding damage diameters.
+- The label ""Inner_Race_014"" is found in the ""故障位置"" column under the ""内圈"" (inner ring) row.
+- The damage diameter for this label is 0.014 inches.
+
+Final Answer: The sample with the label ""Inner_Race_014"" has a fault position of ""内圈"" (inner ring) and a damage diameter of 0.014 inches.",2,Correct,正确读取 Inner_Race_014 的故障位置为内圈、损伤直径为 0.014 inch。
+table_02,table_02_q1,table,table_comparison,short_text,easy,Clean 数据集上测试准确率最高的模型是哪一个，准确率是多少？,MobileViT-S 最高，测试准确率为 100.00%。,OpenGVLab/InternVL3-2B-hf,"Observation:
+在表5-1中，Clean数据集上测试准确率最高的模型是MobileViT-S，准确率为100.00%。
+
+Reasoning:
+通过观察表5-1中的数据，可以看到不同模型在Clean数据集上的测试准确率。MobileViT-S的测试准确率为100.00%，是所有模型中最高的。
+
+Final Answer: 测试准确率最高的模型是MobileViT-S，准确率为100.00%。",2,Correct,正确判断 Clean 数据集上测试准确率最高模型为 MobileViT-S，准确率为 100.00%。
+table_03,table_03_q1,table,table_understanding,short_text,easy,No noise 条件下测试准确率为 100.00 的模型是哪一个？,MobileViT-S 在 No noise 条件下的测试准确率为 100.00。,OpenGVLab/InternVL3-2B-hf,"Observation:
+在表5-2中，No noise条件下的测试准确率（%）为100.00的模型是MobileViT-S。
+
+Reasoning:
+从表格中可以看到，MobileViT-S在No noise条件下的测试准确率为100.00，这是所有模型中最高的。
+
+Final Answer: MobileViT-S",2,Correct,正确识别 No noise 条件下测试准确率为 100.00 的模型是 MobileViT-S。
+table_04,table_04_q1,table,table_understanding,short_text,medium,InternVL3.5-38B 的 Vision Encoder 和总参数量分别是什么？,Vision Encoder 是 InternViT-6B，总参数量为 38.4B。,OpenGVLab/InternVL3-2B-hf,"Observation:
+InternVL3.5-38B 的 Vision Encoder 是 InternViT-300M，总参数量是 38.4B。
+
+Reasoning:
+从表格中可以看到，InternVL3.5-38B 的 Vision Encoder 是 InternViT-300M，而总参数量列中明确显示了 38.4B。
+
+Final Answer: Vision Encoder 是 InternViT-300M，总参数量是 38.4B。",1,Table Misreading,总参数量 38.4B 判断正确，但 Vision Encoder 应为 InternViT-6B，模型误读为 InternViT-300M。
+table_05,table_05_q1,table,table_comparison,short_text,hard,在 HumanEval 这一行中，哪个模型的分数最高，分数是多少？,Claude 3.5 Sonnet 的分数最高，为 92.0。,OpenGVLab/InternVL3-2B-hf,"Observation:
+To find the highest score in the ""HumanEval"" row, we need to look at the scores for the 8B, 70B, and 405B versions of Llama 3.
+
+Final Answer: The 405B version of Llama 3 has the highest score of 92.0 in the HumanEval row.",0,Table Misreading,HumanEval 最高分模型应为 Claude 3.5 Sonnet，但模型误判为 Llama 3 405B；虽然分数 92.0 相同，但关键模型名称错误。
+table_06,table_06_q1,table,table_understanding,number,hard,在 MathVista mini 这一行中，Qwen2.5-VL 72B 的得分是多少？,Qwen2.5-VL 72B 在 MathVista mini 上的得分是 74.8。,OpenGVLab/InternVL3-2B-hf,"Observation:
+Looking at the table, we need to find the row for ""MathVista mini"" and the column for ""Qwen2.5-VL 72B"". The score for this combination is listed in the table.
+
+Reasoning:
+The table provides a comparison of various models across different datasets. The row for ""MathVista mini"" indicates the performance on the MathVista mini dataset. The column for ""Qwen2.5-VL 72B"" shows the score for this specific model.
+
+Final Answer: 67.7",0,Table Misreading,Qwen2.5-VL 72B 在 MathVista mini 上的得分应为 74.8，模型误读为 67.7。
+ui_01,ui_01_q1,ui_screenshot,UI_understanding,short_text,easy,截图中央输入框上方显示的中文问题是什么？,显示的问题是“我们该在 try 中做什么？”。,OpenGVLab/InternVL3-2B-hf,"Observation:
+Reasoning:
+The screenshot shows a user interface of a software application with a central input box and several options below it. The text in the input box is in Chinese, and it reads ""我们该在 try 中做什么？"" which translates to ""What should we do in try?""
+
+Final Answer: 我们该在 try 中做什么？",2,Correct,正确读取截图中央输入框上方的问题“我们该在 try 中做什么？”。
+ui_02,ui_02_q1,ui_screenshot,UI_understanding,short_text,easy,GitHub 页面左侧个人资料区显示的昵称是什么？,昵称是 City_Hunt。,OpenGVLab/InternVL3-2B-hf,"Observation:
+The GitHub page shows the user's profile with the name ""City_Hunt"" displayed in the left-hand side personal information area.
+
+Reasoning:
+The profile section of the GitHub page clearly shows the user's name ""City_Hunt"" along with their GitHub username ""gaoge-ai"" and the pronoun ""he/him.""
+
+Final Answer: City_Hunt",2,Correct,正确识别 GitHub 页面左侧个人资料区昵称为 City_Hunt。
+ui_03,ui_03_q1,ui_screenshot,UI_understanding,short_text,medium,右侧 Trending 列表中排在第一位的模型名称是什么？,排在第一位的是 SulphurAI/Sulphur-2-base。,OpenGVLab/InternVL3-2B-hf,"Observation:
+The image shows a Hugging Face interface with a ""Trending"" section on the right. The first model listed in the Trending section is ""SulphurAI/Sulphur-2-base.""
+
+Reasoning:
+- The ""Trending"" section is clearly visible on the right side of the screen.
+- The first model listed under ""SulphurAI/Sulphur-2-base"" is the first item in the Trending list.
+
+Final Answer: SulphurAI/Sulphur-2-base",2,Correct,正确读取 Hugging Face Trending 列表第一位模型名称。
+ui_04,ui_04_q1,ui_screenshot,UI_understanding,short_text,easy,中间快捷提示中，“项目视图”的快捷键是什么？,“项目视图”的快捷键是 Alt+1。,OpenGVLab/InternVL3-2B-hf,"Observation:
+The image shows a screenshot of a software interface with various shortcuts listed. The shortcut for ""项目视图"" (Project View) is indicated as ""Alt+1"".
+
+Reasoning:
+The interface includes a list of keyboard shortcuts for different functionalities. The text ""项目视图"" (Project View) is followed by the shortcut ""Alt+1"", which is clearly visible in the image.
+
+Final Answer: Alt+1",2,Correct,正确识别项目视图快捷键为 Alt+1。
+ui_05,ui_05_q1,ui_screenshot,UI_understanding,short_text,easy,这个 VS Code 界面中，“打开文件”的快捷键是什么？,“打开文件”的快捷键是 Ctrl+O。,OpenGVLab/InternVL3-2B-hf,"Observation:
+The image shows the VS Code interface with a dark theme. The text ""打开文件"" is visible, which translates to ""Open File"" in English.
+
+Reasoning:
+The text ""打开文件"" is clearly displayed in the bottom right corner of the interface, indicating the shortcut for opening a file.
+
+Final Answer: Ctrl + O",2,Correct,正确读取 VS Code 中“打开文件”的快捷键为 Ctrl+O。

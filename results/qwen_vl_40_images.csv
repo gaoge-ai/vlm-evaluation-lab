@@ -1,0 +1,514 @@
+﻿image_id,question_id,image_path,image_type,skill_type,difficulty,question,expected_answer,answer_type,source,notes,model_name,prompt_mode,prompt,model_answer,inference_time,error_note,whether_answer_is_usable
+architecture_01,architecture_01_q1,data/images/architecture/architecture_01.png,academic_figure,scientific_figure,medium,图中 BERT 的预训练部分包含哪两个顶部任务标签？,包含 NSP 和 Mask LM 两个任务标签。,short_text,self_collected,测试模型是否能读取架构图中的关键任务标签。,Qwen/Qwen2.5-VL-3B-Instruct,structured_zh,"请严格基于图像内容回答问题。不要猜测图中看不到的信息。
+如果图中无法判断，请明确回答“图中无法确定”。
+
+问题：图中 BERT 的预训练部分包含哪两个顶部任务标签？
+
+请用以下格式回答：
+Observation:
+Reasoning:
+Final Answer:","Observation: 图中 BERT 的预训练部分有两个顶部任务标签，分别是 NSP 和 Mask LM。
+
+Reasoning: 根据图中的标注，NSP 和 Mask LM 是预训练阶段的两个主要任务标签。
+
+Final Answer: 图中 BERT 的预训练部分包含 NSP 和 Mask LM 两个顶部任务标签。",15.2972,,True
+architecture_02,architecture_02_q1,data/images/architecture/architecture_02.png,academic_figure,zero_shot_reasoning,medium,在右侧 zero-shot prediction 部分，图像特征最终匹配到的文本类别是什么？,匹配到 dog，对应输出是“A photo of a dog.”。,short_text,self_collected,测试对 CLIP 类图文匹配流程的理解。,Qwen/Qwen2.5-VL-3B-Instruct,structured_zh,"请严格基于图像内容回答问题。不要猜测图中看不到的信息。
+如果图中无法判断，请明确回答“图中无法确定”。
+
+问题：在右侧 zero-shot prediction 部分，图像特征最终匹配到的文本类别是什么？
+
+请用以下格式回答：
+Observation:
+Reasoning:
+Final Answer:","Observation: 在右侧 zero-shot prediction 部分，图像特征最终匹配到的文本类别是 ""dog""。
+
+Reasoning: 根据图中的描述和流程图，当输入一张图片时，首先通过图像编码器提取图像特征 I1, I2, ..., IN。然后将这些特征与文本 T1, T2, ..., TN 进行对比，找出最相似的文本类别。在这个例子中，图像特征最终匹配到了文本类别 ""dog""。
+
+Final Answer: dog",22.8148,,True
+architecture_03,architecture_03_q1,data/images/architecture/architecture_03.png,academic_figure,architecture_understanding,medium,图中 Noised Latent 在进入 DiT Block 之前经过了哪一步处理？,Noised Latent 先经过 Patchify 处理；timestep 和 label 也通过 Embed 输入到 DiT Block。,evidence_based_reasoning,self_collected,测试模型能否根据箭头关系解释模块连接。,Qwen/Qwen2.5-VL-3B-Instruct,structured_zh,"请严格基于图像内容回答问题。不要猜测图中看不到的信息。
+如果图中无法判断，请明确回答“图中无法确定”。
+
+问题：图中 Noised Latent 在进入 DiT Block 之前经过了哪一步处理？
+
+请用以下格式回答：
+Observation:
+Reasoning:
+Final Answer:","Observation: 图中 Noised Latent 在进入 DiT Block 之前，经过了 Patchify 和 Embed 的处理。
+
+Reasoning: 根据图中的流程图，Noised Latent 首先被 Patchify 处理，然后被 Embed 处理，这两个步骤在 Noised Latent 进入 DiT Block 之前进行。
+
+Final Answer: Noised Latent 在进入 DiT Block 之前经过了 Patchify 和 Embed 的处理。",20.8869,,True
+architecture_04,architecture_04_q1,data/images/architecture/architecture_04.png,academic_figure,architecture_understanding,medium,图中 InternVL3.5-Flash 相比 InternVL3.5 额外增加了哪个用于动态选择压缩率的模块？,额外增加了 Visual Resolution Router（ViR）。,short_text,self_collected,测试细粒度读取模型架构差异。,Qwen/Qwen2.5-VL-3B-Instruct,structured_zh,"请严格基于图像内容回答问题。不要猜测图中看不到的信息。
+如果图中无法判断，请明确回答“图中无法确定”。
+
+问题：图中 InternVL3.5-Flash 相比 InternVL3.5 额外增加了哪个用于动态选择压缩率的模块？
+
+请用以下格式回答：
+Observation:
+Reasoning:
+Final Answer:","Observation: The figure shows the overall architecture of InternVL3.5 and its extension, InternVL3.5-Flash. It mentions that InternVL3.5-Flash introduces an additional visual resolution router (ViR) to dynamically select the appropriate compression rate for each image patch.
+
+Reasoning: The text in the figure explicitly states that InternVL3.5-Flash is extended with an additional visual resolution router (ViR), which is used to dynamically select the appropriate compression rate for each image patch.
+
+Final Answer: InternVL3.5-Flash compared to InternVL3.5额外增加了一个用于动态选择压缩率的模块，即视觉分辨率路由器（ViR）。",30.158,,True
+architecture_05,architecture_05_q1,data/images/architecture/architecture_05.png,academic_figure,visual_reasoning,medium,这张 MAE 架构图中，decoder 的主要目标是什么？,decoder 使用编码后的可见 patch 和 mask token 来重建原始图像像素，也就是右侧的 target 图像。,evidence_based_reasoning,self_collected,测试模型是否理解遮挡重建流程。,Qwen/Qwen2.5-VL-3B-Instruct,structured_zh,"请严格基于图像内容回答问题。不要猜测图中看不到的信息。
+如果图中无法判断，请明确回答“图中无法确定”。
+
+问题：这张 MAE 架构图中，decoder 的主要目标是什么？
+
+请用以下格式回答：
+Observation:
+Reasoning:
+Final Answer:","Observation: The decoder is introduced after the encoder and processes the full set of encoded patches and mask tokens to reconstruct the original image in pixels.
+
+Reasoning: According to the figure, the decoder is used to reconstruct the original image from the encoded patches and mask tokens that were processed by the encoder during pre-training.
+
+Final Answer: The main goal of the decoder is to reconstruct the original image from the encoded patches and mask tokens that were processed by the encoder during pre-training.",18.9581,,True
+architecture_06,architecture_06_q1,data/images/architecture/architecture_06.png,academic_figure,hallucination_risk,hard,图中是否给出了 Selective State Space Model 的训练数据集名称？,没有。图中展示的是模型结构和 GPU 存储层级，没有提供训练数据集名称。,no_answer,self_collected,反幻觉问题，避免模型凭外部知识编造数据集。,Qwen/Qwen2.5-VL-3B-Instruct,structured_zh,"请严格基于图像内容回答问题。不要猜测图中看不到的信息。
+如果图中无法判断，请明确回答“图中无法确定”。
+
+问题：图中是否给出了 Selective State Space Model 的训练数据集名称？
+
+请用以下格式回答：
+Observation:
+Reasoning:
+Final Answer:","Observation: The image does not provide any information about the training data set name for the Selective State Space Model.
+
+Reasoning: The image shows a diagram of the Selective State Space Model with hardware-aware state expansion, but it does not mention or display any data set names.
+
+Final Answer: 图中无法确定。",13.0317,,True
+architecture_07,architecture_07_q1,data/images/architecture/architecture_07.png,academic_figure,multimodal_architecture,medium,图中视觉编码器处理的多模态输入主要包括哪两类？,主要包括 images 和 videos，也就是图片和视频。,short_text,self_collected,测试模型能否读取 Qwen2.5-VL 架构图中的输入类型。,Qwen/Qwen2.5-VL-3B-Instruct,structured_zh,"请严格基于图像内容回答问题。不要猜测图中看不到的信息。
+如果图中无法判断，请明确回答“图中无法确定”。
+
+问题：图中视觉编码器处理的多模态输入主要包括哪两类？
+
+请用以下格式回答：
+Observation:
+Reasoning:
+Final Answer:","Observation: 图中显示了视觉编码器处理的多模态输入包括图片和视频。
+
+Reasoning: 视觉编码器位于图中的上半部分，其左侧标注有“Images and videos here.”，右侧则分别展示了三张图片（Picture 1、Picture 2 和 Picture 3）以及一段视频（Video 1）。这些信息表明视觉编码器主要处理的是图片和视频这两种类型的多模态输入。
+
+Final Answer: 图中视觉编码器处理的多模态输入主要包括图片和视频两类。",25.1252,,True
+architecture_08,architecture_08_q1,data/images/architecture/architecture_08.png,academic_figure,architecture_comparison,medium,图中哪一种结构在不同层级展示了 4x、8x、16x 的层次化特征图？,Swin Transformer（ours）展示了 4x、8x、16x 的层次化特征图。,short_text,self_collected,测试模型能否比较两种视觉 Transformer 结构。,Qwen/Qwen2.5-VL-3B-Instruct,structured_zh,"请严格基于图像内容回答问题。不要猜测图中看不到的信息。
+如果图中无法判断，请明确回答“图中无法确定”。
+
+问题：图中哪一种结构在不同层级展示了 4x、8x、16x 的层次化特征图？
+
+请用以下格式回答：
+Observation:
+Reasoning:
+Final Answer:","Observation: 图中有两种结构，分别是(a) Swin Transformer 和 (b) ViT。
+
+Reasoning: 根据图中的描述，(a) Swin Transformer 在不同层级展示了 4x、8x、16x 的层次化特征图，而 (b) ViT 没有展示类似的层次化特征图。
+
+Final Answer: 图中(a) Swin Transformer 在不同层级展示了 4x、8x、16x 的层次化特征图。",21.5038,,True
+chart_01,chart_01_q1,data/images/chart/chart_01.png,chart,chart_understanding,easy,图中降雨量最高的月份是哪一个，数值是多少？,6 月（Jun）最高，降雨量为 180 mm。,short_text,self_generated,柱状图最大值读取。,Qwen/Qwen2.5-VL-3B-Instruct,structured_zh,"请严格基于图像内容回答问题。不要猜测图中看不到的信息。
+如果图中无法判断，请明确回答“图中无法确定”。
+
+问题：图中降雨量最高的月份是哪一个，数值是多少？
+
+请用以下格式回答：
+Observation:
+Reasoning:
+Final Answer:","Observation: The bar graph shows the average monthly rainfall in Metropolis for 2023.
+
+Reasoning: To determine the month with the highest rainfall, we need to compare the heights of all the bars. The bar representing June is the tallest, indicating that it has the highest rainfall among all months.
+
+Final Answer: The month with the highest rainfall is June, with an average rainfall of 180 mm.",17.4479,,True
+chart_02,chart_02_q1,data/images/chart/chart_02.png,chart,chart_understanding,easy,图中平均温度最高的月份是哪一个，温度是多少？,7 月（Jul）最高，温度为 32°C。,short_text,self_generated,折线图峰值读取。,Qwen/Qwen2.5-VL-3B-Instruct,structured_zh,"请严格基于图像内容回答问题。不要猜测图中看不到的信息。
+如果图中无法判断，请明确回答“图中无法确定”。
+
+问题：图中平均温度最高的月份是哪一个，温度是多少？
+
+请用以下格式回答：
+Observation:
+Reasoning:
+Final Answer:","Observation: The graph shows the average monthly temperature in Metropolis for 2023.
+
+Reasoning: To determine the month with the highest average temperature, we need to identify the point on the line that is furthest to the right and has the highest value on the y-axis. This corresponds to July, where the temperature reaches its peak at approximately 32°C.
+
+Final Answer: The average temperature in Metropolis was highest in July, reaching 32°C.",18.2358,,True
+chart_03,chart_03_q1,data/images/chart/chart_03.png,chart,stacked_chart_understanding,medium,图中全年总能耗最高的是哪个月份，总量是多少？,8 月（Aug）最高，总能耗为 300 kWh。,short_text,self_generated,测试堆叠柱状图总量读取。,Qwen/Qwen2.5-VL-3B-Instruct,structured_zh,"请严格基于图像内容回答问题。不要猜测图中看不到的信息。
+如果图中无法判断，请明确回答“图中无法确定”。
+
+问题：图中全年总能耗最高的是哪个月份，总量是多少？
+
+请用以下格式回答：
+Observation:
+Reasoning:
+Final Answer:","Observation: The graph shows the monthly energy consumption for different sectors (Residential, Commercial, and Industrial) in Metropolis for 2023.
+
+Reasoning: To determine the month with the highest total energy consumption, we need to sum up the energy consumption values for all three sectors for each month. The highest total consumption will be the one with the highest value.
+
+Final Answer: The month with the highest total energy consumption is August, with a total of 300 kvWh.",20.9895,,True
+chart_04,chart_04_q1,data/images/chart/chart_04.png,chart,chart_comparison,medium,在 SNR = -4 dB 时，哪条模型曲线的准确率最高？,mobilevit 的准确率最高。,short_text,self_generated,测试多折线图在指定横轴位置的比较能力。,Qwen/Qwen2.5-VL-3B-Instruct,structured_zh,"请严格基于图像内容回答问题。不要猜测图中看不到的信息。
+如果图中无法判断，请明确回答“图中无法确定”。
+
+问题：在 SNR = -4 dB 时，哪条模型曲线的准确率最高？
+
+请用以下格式回答：
+Observation:
+Reasoning:
+Final Answer:","Observation: 在 SNR = -4 dB 时，resnet50 模型的曲线是最高的。
+
+Reasoning: 观察图表，当 SNR 达到-4 dB 时，resnet50 模型的曲线位于所有其他模型曲线之上，表明其在此条件下具有最高的准确率。
+
+Final Answer: 在 SNR = -4 dB 时，resnet50 模型的准确率最高。",19.4618,,True
+chart_05,chart_05_q1,data/images/chart/chart_05.png,chart,chart_comparison,easy,图中平均测试准确率最高的模型是哪一个，数值是多少？,resnet50 最高，平均测试准确率为 97.79%。,short_text,self_generated,测试柱状图排序和数值读取。,Qwen/Qwen2.5-VL-3B-Instruct,structured_zh,"请严格基于图像内容回答问题。不要猜测图中看不到的信息。
+如果图中无法判断，请明确回答“图中无法确定”。
+
+问题：图中平均测试准确率最高的模型是哪一个，数值是多少？
+
+请用以下格式回答：
+Observation:
+Reasoning:
+Final Answer:","Observation: The bar chart shows the average test accuracy for different models under noisy conditions, ranging from 4dB to -4dB.
+
+Reasoning: To determine which model has the highest average test accuracy, we need to compare the heights of the bars corresponding to each model. The model with the tallest bar will have the highest average test accuracy.
+
+Final Answer: The model with the highest average test accuracy is resnet50, with an accuracy of 97.79%.",19.508,,True
+chart_06,chart_06_q1,data/images/chart/chart_06.png,chart,scatter_plot_understanding,medium,散点图中参数量最大的模型是哪一个？,swin_tiny_patch4_window7_224，也就是图中标注的 swin。,short_text,self_generated,测试散点图横轴最大值识别。,Qwen/Qwen2.5-VL-3B-Instruct,structured_zh,"请严格基于图像内容回答问题。不要猜测图中看不到的信息。
+如果图中无法判断，请明确回答“图中无法确定”。
+
+问题：散点图中参数量最大的模型是哪一个？
+
+请用以下格式回答：
+Observation:
+Reasoning:
+Final Answer:","Observation: The scatter plot shows different models with varying parameters and test accuracy.
+
+Reasoning: To determine which model has the largest parameter count, we need to compare the x-axis values of each model's data point. The model with the highest x-axis value will have the largest number of parameters.
+
+Final Answer: The model with the largest parameter count is ""swin"".",14.1761,,True
+OCR_01,OCR_01_q1,data/images/OCR/OCR_01.png,ocr_document,OCR,easy,截图中的主标题是什么？,MLLM Research RAG Assistant。,short_text,self_screenshot,测试中文界面中的英文标题 OCR。,Qwen/Qwen2.5-VL-3B-Instruct,structured_zh,"请严格基于图像内容回答问题。不要猜测图中看不到的信息。
+如果图中无法判断，请明确回答“图中无法确定”。
+
+问题：截图中的主标题是什么？
+
+请用以下格式回答：
+Observation:
+Reasoning:
+Final Answer:","Observation: 截图中的主标题是 ""MLLM Research RAG Assistant""。
+
+Reasoning: 主标题位于图片的顶部，直接显示了该文档的主题。
+
+Final Answer: MLLM Research RAG Assistant",8.994,,True
+OCR_02,OCR_02_q1,data/images/OCR/OCR_02.png,ocr_code_screenshot,code_OCR,medium,代码截图中 DEFAULT_TOP_K 的值是多少？,DEFAULT_TOP_K 的值是 6。,number,self_screenshot,测试代码截图中变量和值的读取。,Qwen/Qwen2.5-VL-3B-Instruct,structured_zh,"请严格基于图像内容回答问题。不要猜测图中看不到的信息。
+如果图中无法判断，请明确回答“图中无法确定”。
+
+问题：代码截图中 DEFAULT_TOP_K 的值是多少？
+
+请用以下格式回答：
+Observation:
+Reasoning:
+Final Answer:","Observation: The code snippet shows the following line:
+```python
+DEFAULT_TOP_K = 6
+```
+Reasoning: The value of `DEFAULT_TOP_K` is explicitly stated in the code.
+Final Answer: DEFAULT_TOP_K 的值是 6。",10.6304,,True
+OCR_03,OCR_03_q1,data/images/OCR/OCR_03.png,ocr_paper,academic_OCR,easy,论文标题中提到的图像 patch 大小是多少？,标题中提到的 patch 大小是 16x16。,short_text,self_collected,测试英文论文标题 OCR。,Qwen/Qwen2.5-VL-3B-Instruct,structured_zh,"请严格基于图像内容回答问题。不要猜测图中看不到的信息。
+如果图中无法判断，请明确回答“图中无法确定”。
+
+问题：论文标题中提到的图像 patch 大小是多少？
+
+请用以下格式回答：
+Observation:
+Reasoning:
+Final Answer:","Observation: The paper title mentions ""An Image is Worth 16x16 Words"".
+Reasoning: The image does not provide information about the size of the image patches used in the paper.
+Final Answer: 图中无法确定。",9.6686,,True
+OCR_04,OCR_04_q1,data/images/OCR/OCR_04.png,ocr_document,Chinese_OCR,medium,通知落款日期是什么？,落款日期是 2026 年 4 月 16 日。,short_text,self_document,测试中文通知中的日期读取。,Qwen/Qwen2.5-VL-3B-Instruct,structured_zh,"请严格基于图像内容回答问题。不要猜测图中看不到的信息。
+如果图中无法判断，请明确回答“图中无法确定”。
+
+问题：通知落款日期是什么？
+
+请用以下格式回答：
+Observation:
+Reasoning:
+Final Answer:","Observation: The date mentioned in the document is April 16, 2026.
+Reasoning: The document clearly states ""后勤保障处"" (Lügōng Bǎogào Chu) and the date ""2026年4月16日"" (April 16, 2026).
+Final Answer: The notification's落款date is April 16, 2026.",17.6363,,True
+OCR_05,OCR_05_q1,data/images/OCR/OCR_05.png,ocr_paper,academic_OCR,medium,摘要中提到该方法在无噪声测试集上的测试准确率是多少？,无噪声测试集上的测试准确率是 100.00%。,number,self_collected,测试从摘要长段落中抽取关键数值。,Qwen/Qwen2.5-VL-3B-Instruct,structured_zh,"请严格基于图像内容回答问题。不要猜测图中看不到的信息。
+如果图中无法判断，请明确回答“图中无法确定”。
+
+问题：摘要中提到该方法在无噪声测试集上的测试准确率是多少？
+
+请用以下格式回答：
+Observation:
+Reasoning:
+Final Answer:","Observation: The abstract states that the proposed method achieves a test accuracy of 100.00% on the no-noise test set.
+
+Reasoning: This information is directly provided in the text, indicating that the method performs perfectly without any noise interference.
+
+Final Answer: 100.00%",12.1197,,True
+OCR_06,OCR_06_q1,data/images/OCR/OCR_06.png,ocr_bilingual_document,bilingual_OCR,medium,蓝色英文段落开头自我介绍的老师姓什么？,老师姓 Wang，英文写作 Mr. Wang。,short_text,self_document,测试彩色中英混排文本的 OCR。,Qwen/Qwen2.5-VL-3B-Instruct,structured_zh,"请严格基于图像内容回答问题。不要猜测图中看不到的信息。
+如果图中无法判断，请明确回答“图中无法确定”。
+
+问题：蓝色英文段落开头自我介绍的老师姓什么？
+
+请用以下格式回答：
+Observation:
+Reasoning:
+Final Answer:","Observation: The blue English paragraph starts with ""Welcome, everyone. I'm Mr. Wang.""
+Reasoning: The text is in Chinese and the first sentence introduces the speaker as ""Mr. Wang."" This indicates that the teacher's name is Wang.
+Final Answer: The teacher's name is Wang.",11.9445,,True
+scene_01,scene_01_q1,data/images/scene/scene_01.jpg,scene_photo,object_recognition,easy,图中人手里拿着的红色物品是什么？,人手里拿着一个红色保温杯或水杯。,short_text,self_photo,测试日常物体识别。,Qwen/Qwen2.5-VL-3B-Instruct,structured_zh,"请严格基于图像内容回答问题。不要猜测图中看不到的信息。
+如果图中无法判断，请明确回答“图中无法确定”。
+
+问题：图中人手里拿着的红色物品是什么？
+
+请用以下格式回答：
+Observation:
+Reasoning:
+Final Answer:","Observation: The person is holding a cylindrical red object with a gold emblem and text on it.
+
+Reasoning: The object has a red color, a gold emblem featuring a lion, and text that includes ""Gryffindor"" and ""Harry Potter."" These details suggest that the object is related to the Harry Potter series, specifically the Gryffindor house from the books and movies.
+
+Final Answer: The red item in the person's hand is likely a Gryffindor-themed product, possibly a water bottle or a collectible item, given its design and the reference to Harry Potter.",23.3186,,True
+scene_02,scene_02_q1,data/images/scene/scene_02.jpg,scene_photo,scene_OCR,medium,墙上装裱的书法作品主要写着哪四个大字？,主要写着“大音希声”。,short_text,self_photo,测试场景照片中的中文书法识别。,Qwen/Qwen2.5-VL-3B-Instruct,structured_zh,"请严格基于图像内容回答问题。不要猜测图中看不到的信息。
+如果图中无法判断，请明确回答“图中无法确定”。
+
+问题：墙上装裱的书法作品主要写着哪四个大字？
+
+请用以下格式回答：
+Observation:
+Reasoning:
+Final Answer:","Observation: 图片显示了一幅挂在墙上的书法作品，作品上写有四个大字。
+
+Reasoning: 根据图片中的文字描述，可以确定这幅书法作品上写着四个大字。
+
+Final Answer: 大青师朴",11.5279,,True
+scene_03,scene_03_q1,data/images/scene/scene_03.jpg,scene_photo,counting,easy,图中有几块正在显示湖景桌面的屏幕？,有两块屏幕：一台笔记本屏幕和一台外接显示器。,number,self_photo,测试场景计数和显示内容识别。,Qwen/Qwen2.5-VL-3B-Instruct,structured_zh,"请严格基于图像内容回答问题。不要猜测图中看不到的信息。
+如果图中无法判断，请明确回答“图中无法确定”。
+
+问题：图中有几块正在显示湖景桌面的屏幕？
+
+请用以下格式回答：
+Observation:
+Reasoning:
+Final Answer:","Observation: 图中有两块正在显示湖景桌面的屏幕。
+
+Reasoning: 从图片中可以看到，左边是一台笔记本电脑，右边是一台显示器。这两台设备都显示了相同的湖景桌面背景。
+
+Final Answer: 2块",11.8096,,True
+scene_04,scene_04_q1,data/images/scene/scene_04.jpg,scene_photo,hallucination_risk,medium,仅凭这张建筑照片，能否确定拍摄城市的准确名称？,不能。图中没有清晰提供足以确定拍摄城市的文字或地标信息。,no_answer,self_photo,反幻觉问题，避免模型编造地点。,Qwen/Qwen2.5-VL-3B-Instruct,structured_zh,"请严格基于图像内容回答问题。不要猜测图中看不到的信息。
+如果图中无法判断，请明确回答“图中无法确定”。
+
+问题：仅凭这张建筑照片，能否确定拍摄城市的准确名称？
+
+请用以下格式回答：
+Observation:
+Reasoning:
+Final Answer:","Observation: The image shows a modern cityscape with tall buildings, including one with the logo ""CEB"" on its facade. There are also traffic lights and a bus in the foreground.
+
+Reasoning: While the presence of the ""CEB"" logo suggests that the building might be related to a company or organization named CEB, it does not provide enough specific information to determine the exact name of the city. Additionally, the architecture and other elements do not uniquely identify a particular city.
+
+Final Answer: 图中无法确定。",19.7471,,True
+scene_05,scene_05_q1,data/images/scene/scene_05.jpg,scene_photo,scene_OCR,easy,图片中的影碟或包装属于哪个电影系列？,属于 The Lord of the Rings（指环王）系列。,short_text,self_photo,测试场景中的英文标题识别。,Qwen/Qwen2.5-VL-3B-Instruct,structured_zh,"请严格基于图像内容回答问题。不要猜测图中看不到的信息。
+如果图中无法判断，请明确回答“图中无法确定”。
+
+问题：图片中的影碟或包装属于哪个电影系列？
+
+请用以下格式回答：
+Observation:
+Reasoning:
+Final Answer:","Observation: The image shows movie posters and a certificate for ""The Lord of the Rings"" motion picture trilogy, including ""The Fellowship of the Ring,"" ""Two Towers,"" and ""The Return of the King.""
+
+Reasoning: The text on the posters and the certificate clearly indicates that these items belong to the ""Lord of the Rings"" film series.
+
+Final Answer: The movie series is ""The Lord of the Rings.""",15.8349,,True
+scene_06,scene_06_q1,data/images/scene/scene_06.jpg,scene_photo,spatial_reasoning,easy,图中粉色盖子的容器旁边是否能看到金属门把手或门锁？,是。粉色盖子的容器旁边能看到金属门把手或门锁。,yes_no,self_photo,测试物体邻近关系和空间理解。,Qwen/Qwen2.5-VL-3B-Instruct,structured_zh,"请严格基于图像内容回答问题。不要猜测图中看不到的信息。
+如果图中无法判断，请明确回答“图中无法确定”。
+
+问题：图中粉色盖子的容器旁边是否能看到金属门把手或门锁？
+
+请用以下格式回答：
+Observation:
+Reasoning:
+Final Answer:","Observation: 图中粉色盖子的容器旁边可以看到一个金属门把手。
+
+Reasoning: 根据图片，粉色盖子的容器旁边有一个明显的金属物体，形状和大小与门把手相似，因此可以推断这是一个门把手。
+
+Final Answer: 能看到金属门把手。",11.5223,,True
+scene_07,scene_07_q1,data/images/scene/scene_07.jpg,poster_photo,scene_OCR,easy,海报上的电影名称是什么？,电影名称是 F1 The Movie。,short_text,self_photo,测试海报文字识别。,Qwen/Qwen2.5-VL-3B-Instruct,structured_zh,"请严格基于图像内容回答问题。不要猜测图中看不到的信息。
+如果图中无法判断，请明确回答“图中无法确定”。
+
+问题：海报上的电影名称是什么？
+
+请用以下格式回答：
+Observation:
+Reasoning:
+Final Answer:","Observation: The poster features the title ""The Movie"" prominently at the top, with additional text indicating it is from the director of Top Gun: Maverick and includes actors' names.
+
+Reasoning: The central focus of the image is the movie title, which is clearly displayed in large, bold letters at the top of the poster.
+
+Final Answer: The movie name on the poster is ""The Movie.""",15.0877,,True
+scene_08,scene_08_q1,data/images/scene/scene_08.jpg,scene_photo,object_recognition,easy,这些水果串主要放在什么颜色的托盘或盒子上？,主要放在白色托盘或白色盒子上。,short_text,self_photo,测试日常场景中的物体和颜色识别。,Qwen/Qwen2.5-VL-3B-Instruct,structured_zh,"请严格基于图像内容回答问题。不要猜测图中看不到的信息。
+如果图中无法判断，请明确回答“图中无法确定”。
+
+问题：这些水果串主要放在什么颜色的托盘或盒子上？
+
+请用以下格式回答：
+Observation:
+Reasoning:
+Final Answer:","Observation: 图片中的托盘或盒子是白色的，带有红色的把手。
+
+Reasoning: 从图片中可以看到托盘或盒子的颜色和形状，白色为主色调，配有红色的把手。
+
+Final Answer: 这些水果串主要放在白色的托盘或盒子里。",11.9802,,True
+scene_09,scene_09_q1,data/images/scene/scene_09.jpg,scene_photo,handwritten_OCR,medium,纸上手写英文句子的开头两个词是什么？,开头两个词是“if you”。,short_text,self_photo,测试手写英文 OCR。,Qwen/Qwen2.5-VL-3B-Instruct,structured_zh,"请严格基于图像内容回答问题。不要猜测图中看不到的信息。
+如果图中无法判断，请明确回答“图中无法确定”。
+
+问题：纸上手写英文句子的开头两个词是什么？
+
+请用以下格式回答：
+Observation:
+Reasoning:
+Final Answer:","Observation: The image shows a piece of paper with handwritten text on it.
+
+Reasoning: The first two words visible in the handwriting are ""if you.""
+
+Final Answer: if you",7.6577,,True
+table_01,table_01_q1,data/images/table/table_01.png,table,table_understanding,medium,标签为 Inner_Race_014 的样本对应的故障位置和损伤直径是多少？,故障位置为内圈，损伤直径为 0.014 inch。,evidence_based_reasoning,self_collected,测试表格行定位和多列读取。,Qwen/Qwen2.5-VL-3B-Instruct,structured_zh,"请严格基于图像内容回答问题。不要猜测图中看不到的信息。
+如果图中无法判断，请明确回答“图中无法确定”。
+
+问题：标签为 Inner_Race_014 的样本对应的故障位置和损伤直径是多少？
+
+请用以下格式回答：
+Observation:
+Reasoning:
+Final Answer:","Observation: 标签为 Inner_Race_014 的样本对应的故障位置是内圈，损伤直径是 0.014 inch。
+
+Reasoning: 在表2-1中，我们可以看到标签为 Inner_Race_014 的行，其对应的轴承状态是故障，故障位置是内圈，损伤直径是 0.014 inch。
+
+Final Answer: 标签为 Inner_Race_014 的样本对应的故障位置是内圈，损伤直径是 0.014 inch。",22.2461,,True
+table_02,table_02_q1,data/images/table/table_02.png,table,table_comparison,easy,Clean 数据集上测试准确率最高的模型是哪一个，准确率是多少？,MobileViT-S 最高，测试准确率为 100.00%。,short_text,self_collected,测试表格最大值识别。,Qwen/Qwen2.5-VL-3B-Instruct,structured_zh,"请严格基于图像内容回答问题。不要猜测图中看不到的信息。
+如果图中无法判断，请明确回答“图中无法确定”。
+
+问题：Clean 数据集上测试准确率最高的模型是哪一个，准确率是多少？
+
+请用以下格式回答：
+Observation:
+Reasoning:
+Final Answer:","Observation: 表格中显示了在Clean数据集上五种模型的综合性能对比。
+
+Reasoning: 从表格中的""测试准确率(%)""列可以看出，MobileViT-S的测试准确率为100.00%，这是所有模型中最高的。
+
+Final Answer: Clean数据集上测试准确率最高的模型是MobileViT-S，准确率为100.00%。",18.2756,,True
+table_03,table_03_q1,data/images/table/table_03.png,table,table_understanding,easy,No noise 条件下测试准确率为 100.00 的模型是哪一个？,MobileViT-S 在 No noise 条件下的测试准确率为 100.00。,short_text,self_collected,测试表格指定列查找。,Qwen/Qwen2.5-VL-3B-Instruct,structured_zh,"请严格基于图像内容回答问题。不要猜测图中看不到的信息。
+如果图中无法判断，请明确回答“图中无法确定”。
+
+问题：No noise 条件下测试准确率为 100.00 的模型是哪一个？
+
+请用以下格式回答：
+Observation:
+Reasoning:
+Final Answer:","Observation: 在 No noise 条件下，测试准确率最高的模型是 MobileViT-S。
+
+Reasoning: 表格中，MobileViT-S 在所有 SNR 条件下（包括 No noise）的测试准确率都是 100.00%。
+
+Final Answer: MobileViT-S",14.2898,,True
+table_04,table_04_q1,data/images/table/table_04.png,table,table_understanding,medium,InternVL3.5-38B 的 Vision Encoder 和总参数量分别是什么？,Vision Encoder 是 InternViT-6B，总参数量为 38.4B。,short_text,self_collected,测试英文表格中的行列对应关系。,Qwen/Qwen2.5-VL-3B-Instruct,structured_zh,"请严格基于图像内容回答问题。不要猜测图中看不到的信息。
+如果图中无法判断，请明确回答“图中无法确定”。
+
+问题：InternVL3.5-38B 的 Vision Encoder 和总参数量分别是什么？
+
+请用以下格式回答：
+Observation:
+Reasoning:
+Final Answer:","Observation: The table shows that InternVL3.5-38B uses InternViT-6B as the Vision Encoder and has a total of 38.4 billion parameters.
+
+Reasoning: According to the table, the Vision Encoder for InternVL3.5-38B is listed as InternViT-6B, and its total number of parameters is given as 38.4 billion.
+
+Final Answer: InternVL3.5-38B's Vision Encoder is InternViT-6B, and its total parameter count is 38.4 billion.",24.0496,,True
+table_05,table_05_q1,data/images/table/table_05.png,table,table_comparison,hard,在 HumanEval 这一行中，哪个模型的分数最高，分数是多少？,Claude 3.5 Sonnet 的分数最高，为 92.0。,short_text,self_collected,测试宽表格中跨多列比较。,Qwen/Qwen2.5-VL-3B-Instruct,structured_zh,"请严格基于图像内容回答问题。不要猜测图中看不到的信息。
+如果图中无法判断，请明确回答“图中无法确定”。
+
+问题：在 HumanEval 这一行中，哪个模型的分数最高，分数是多少？
+
+请用以下格式回答：
+Observation:
+Reasoning:
+Final Answer:","Observation: 在 HumanEval 这一行中，Claude 3.5 Sonnet 的分数最高，分数是 92.0。
+
+Reasoning: 我们需要查看表格中 HumanEval 这一行的所有模型，并找出分数最高的那个。在这个例子中，Claude 3.5 Sonnet 的分数为 92.0，这是所有模型中最高的。
+
+Final Answer: 在 HumanEval 这一行中，Claude 3.5 Sonnet 的分数最高，分数是 92.0。",21.9942,,True
+table_06,table_06_q1,data/images/table/table_06.png,table,table_understanding,hard,在 MathVista mini 这一行中，Qwen2.5-VL 72B 的得分是多少？,Qwen2.5-VL 72B 在 MathVista mini 上的得分是 74.8。,number,self_collected,测试复杂论文表格中的指定单元格读取。,Qwen/Qwen2.5-VL-3B-Instruct,structured_zh,"请严格基于图像内容回答问题。不要猜测图中看不到的信息。
+如果图中无法判断，请明确回答“图中无法确定”。
+
+问题：在 MathVista mini 这一行中，Qwen2.5-VL 72B 的得分是多少？
+
+请用以下格式回答：
+Observation:
+Reasoning:
+Final Answer:","Observation: 在 MathVista mini 这一行中，Qwen2.5-VL 72B 的得分是 70.5。
+
+Reasoning: 我们需要查看表格中 MathVista mini 这一列，找到 Qwen2.5-VL 72B 对应的数值。
+
+Final Answer: 70.5",15.2907,,True
+ui_01,ui_01_q1,data/images/ui/ui_01.png,ui_screenshot,UI_understanding,easy,截图中央输入框上方显示的中文问题是什么？,显示的问题是“我们该在 try 中做什么？”。,short_text,self_screenshot,测试 UI 截图中的中文文本识别。,Qwen/Qwen2.5-VL-3B-Instruct,structured_zh,"请严格基于图像内容回答问题。不要猜测图中看不到的信息。
+如果图中无法判断，请明确回答“图中无法确定”。
+
+问题：截图中央输入框上方显示的中文问题是什么？
+
+请用以下格式回答：
+Observation:
+Reasoning:
+Final Answer:","Observation: 截图中央输入框上方显示的中文问题是：“我们该在 try 中做什么？”
+
+Reasoning: 根据图片内容，可以清晰地看到这个问题位于输入框上方。
+
+Final Answer: 我们该在 try 中做什么？",12.1322,,True
+ui_02,ui_02_q1,data/images/ui/ui_02.png,ui_screenshot,UI_understanding,easy,GitHub 页面左侧个人资料区显示的昵称是什么？,昵称是 City_Hunt。,short_text,self_screenshot,测试网页 UI 中的用户信息读取。,Qwen/Qwen2.5-VL-3B-Instruct,structured_zh,"请严格基于图像内容回答问题。不要猜测图中看不到的信息。
+如果图中无法判断，请明确回答“图中无法确定”。
+
+问题：GitHub 页面左侧个人资料区显示的昵称是什么？
+
+请用以下格式回答：
+Observation:
+Reasoning:
+Final Answer:","Observation: The GitHub page shows the user's profile with the name ""City_Hunt"" and the username ""gagee-ai"".
+Reasoning: The nickname is clearly visible in the personal information section of the GitHub profile.
+Final Answer: City_Hunt",10.6593,,True
+ui_03,ui_03_q1,data/images/ui/ui_03.png,ui_screenshot,UI_understanding,medium,右侧 Trending 列表中排在第一位的模型名称是什么？,排在第一位的是 SulphurAI/Sulphur-2-base。,short_text,self_screenshot,测试网页列表区域的读取。,Qwen/Qwen2.5-VL-3B-Instruct,structured_zh,"请严格基于图像内容回答问题。不要猜测图中看不到的信息。
+如果图中无法判断，请明确回答“图中无法确定”。
+
+问题：右侧 Trending 列表中排在第一位的模型名称是什么？
+
+请用以下格式回答：
+Observation:
+Reasoning:
+Final Answer:","Observation: 右侧Trending列表中，第一个模型的名称是""SulphurAI/Sulphur-2-base""。
+
+Reasoning: 我们可以通过观察右侧Trending列表中的第一个条目来得出答案。该条目的标题显示了模型的名称和描述。
+
+Final Answer: SulphurAI/Sulphur-2-base",15.8546,,True
+ui_04,ui_04_q1,data/images/ui/ui_04.png,ui_screenshot,UI_understanding,easy,中间快捷提示中，“项目视图”的快捷键是什么？,“项目视图”的快捷键是 Alt+1。,short_text,self_screenshot,测试 IDE 欢迎页中的快捷键读取。,Qwen/Qwen2.5-VL-3B-Instruct,structured_zh,"请严格基于图像内容回答问题。不要猜测图中看不到的信息。
+如果图中无法判断，请明确回答“图中无法确定”。
+
+问题：中间快捷提示中，“项目视图”的快捷键是什么？
+
+请用以下格式回答：
+Observation:
+Reasoning:
+Final Answer:","Observation: The image shows a text editor interface with various shortcuts listed in the middle section. One of the shortcuts mentioned is ""项目视图"" which translates to ""Project View"" and its corresponding shortcut is ""Alt+1"".
+
+Reasoning: The question asks for the shortcut key associated with ""项目视图"". From the information provided in the image, it is clear that the shortcut key for ""项目视图"" is ""Alt+1"".
+
+Final Answer: Alt+1",19.7886,,True
+ui_05,ui_05_q1,data/images/ui/ui_05.png,ui_screenshot,UI_understanding,easy,这个 VS Code 界面中，“打开文件”的快捷键是什么？,“打开文件”的快捷键是 Ctrl+O。,short_text,self_screenshot,测试 VS Code 欢迎页中的快捷键读取。,Qwen/Qwen2.5-VL-3B-Instruct,structured_zh,"请严格基于图像内容回答问题。不要猜测图中看不到的信息。
+如果图中无法判断，请明确回答“图中无法确定”。
+
+问题：这个 VS Code 界面中，“打开文件”的快捷键是什么？
+
+请用以下格式回答：
+Observation:
+Reasoning:
+Final Answer:","Observation: The image shows the VS Code interface with a dark theme and various icons on the left side of the screen. There is a search bar at the top, followed by a list of menu options including ""文件"" (File), ""编辑"" (Edit), ""选择"" (Select), ""查看"" (View), ""转到"" (Go to), ""运行"" (Run), ""终端"" (Terminal), and ""帮助"" (Help). Below these options, there is a section displaying keyboard shortcuts for different actions, such as ""打开聊天"" (Open Chat) with the shortcut ""Ctrl + Alt + I"".
+
+Reasoning: The question asks specifically about the shortcut for opening a file in VS Code. From the information provided in the image, we can see that the shortcut for ""打开文件"" (Open File) is listed as ""Ctrl + K"", which corresponds to the ""Ctrl + K"" shortcut shown in the image.
+
+Final Answer: Ctrl + K",37.1842,,True

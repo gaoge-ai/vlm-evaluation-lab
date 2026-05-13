@@ -1,0 +1,41 @@
+﻿image_id,question_id,image_path,image_type,skill_type,difficulty,question,expected_answer,answer_type,source,notes
+architecture_01,architecture_01_q1,data/images/architecture/architecture_01.png,academic_figure,scientific_figure,medium,图中 BERT 的预训练部分包含哪两个顶部任务标签？,包含 NSP 和 Mask LM 两个任务标签。,short_text,self_collected,测试模型是否能读取架构图中的关键任务标签。
+architecture_02,architecture_02_q1,data/images/architecture/architecture_02.png,academic_figure,zero_shot_reasoning,medium,在右侧 zero-shot prediction 部分，图像特征最终匹配到的文本类别是什么？,匹配到 dog，对应输出是“A photo of a dog.”。,short_text,self_collected,测试对 CLIP 类图文匹配流程的理解。
+architecture_03,architecture_03_q1,data/images/architecture/architecture_03.png,academic_figure,architecture_understanding,medium,图中 Noised Latent 在进入 DiT Block 之前经过了哪一步处理？,Noised Latent 先经过 Patchify 处理；timestep 和 label 也通过 Embed 输入到 DiT Block。,evidence_based_reasoning,self_collected,测试模型能否根据箭头关系解释模块连接。
+architecture_04,architecture_04_q1,data/images/architecture/architecture_04.png,academic_figure,architecture_understanding,medium,图中 InternVL3.5-Flash 相比 InternVL3.5 额外增加了哪个用于动态选择压缩率的模块？,额外增加了 Visual Resolution Router（ViR）。,short_text,self_collected,测试细粒度读取模型架构差异。
+architecture_05,architecture_05_q1,data/images/architecture/architecture_05.png,academic_figure,visual_reasoning,medium,这张 MAE 架构图中，decoder 的主要目标是什么？,decoder 使用编码后的可见 patch 和 mask token 来重建原始图像像素，也就是右侧的 target 图像。,evidence_based_reasoning,self_collected,测试模型是否理解遮挡重建流程。
+architecture_06,architecture_06_q1,data/images/architecture/architecture_06.png,academic_figure,hallucination_risk,hard,图中是否给出了 Selective State Space Model 的训练数据集名称？,没有。图中展示的是模型结构和 GPU 存储层级，没有提供训练数据集名称。,no_answer,self_collected,反幻觉问题，避免模型凭外部知识编造数据集。
+architecture_07,architecture_07_q1,data/images/architecture/architecture_07.png,academic_figure,multimodal_architecture,medium,图中视觉编码器处理的多模态输入主要包括哪两类？,主要包括 images 和 videos，也就是图片和视频。,short_text,self_collected,测试模型能否读取 Qwen2.5-VL 架构图中的输入类型。
+architecture_08,architecture_08_q1,data/images/architecture/architecture_08.png,academic_figure,architecture_comparison,medium,图中哪一种结构在不同层级展示了 4x、8x、16x 的层次化特征图？,Swin Transformer（ours）展示了 4x、8x、16x 的层次化特征图。,short_text,self_collected,测试模型能否比较两种视觉 Transformer 结构。
+chart_01,chart_01_q1,data/images/chart/chart_01.png,chart,chart_understanding,easy,图中降雨量最高的月份是哪一个，数值是多少？,6 月（Jun）最高，降雨量为 180 mm。,short_text,self_generated,柱状图最大值读取。
+chart_02,chart_02_q1,data/images/chart/chart_02.png,chart,chart_understanding,easy,图中平均温度最高的月份是哪一个，温度是多少？,7 月（Jul）最高，温度为 32°C。,short_text,self_generated,折线图峰值读取。
+chart_03,chart_03_q1,data/images/chart/chart_03.png,chart,stacked_chart_understanding,medium,图中全年总能耗最高的是哪个月份，总量是多少？,8 月（Aug）最高，总能耗为 300 kWh。,short_text,self_generated,测试堆叠柱状图总量读取。
+chart_04,chart_04_q1,data/images/chart/chart_04.png,chart,chart_comparison,medium,在 SNR = -4 dB 时，哪条模型曲线的准确率最高？,mobilevit 的准确率最高。,short_text,self_generated,测试多折线图在指定横轴位置的比较能力。
+chart_05,chart_05_q1,data/images/chart/chart_05.png,chart,chart_comparison,easy,图中平均测试准确率最高的模型是哪一个，数值是多少？,resnet50 最高，平均测试准确率为 97.79%。,short_text,self_generated,测试柱状图排序和数值读取。
+chart_06,chart_06_q1,data/images/chart/chart_06.png,chart,scatter_plot_understanding,medium,散点图中参数量最大的模型是哪一个？,swin_tiny_patch4_window7_224，也就是图中标注的 swin。,short_text,self_generated,测试散点图横轴最大值识别。
+OCR_01,OCR_01_q1,data/images/OCR/OCR_01.png,ocr_document,OCR,easy,截图中的主标题是什么？,MLLM Research RAG Assistant。,short_text,self_screenshot,测试中文界面中的英文标题 OCR。
+OCR_02,OCR_02_q1,data/images/OCR/OCR_02.png,ocr_code_screenshot,code_OCR,medium,代码截图中 DEFAULT_TOP_K 的值是多少？,DEFAULT_TOP_K 的值是 6。,number,self_screenshot,测试代码截图中变量和值的读取。
+OCR_03,OCR_03_q1,data/images/OCR/OCR_03.png,ocr_paper,academic_OCR,easy,论文标题中提到的图像 patch 大小是多少？,标题中提到的 patch 大小是 16x16。,short_text,self_collected,测试英文论文标题 OCR。
+OCR_04,OCR_04_q1,data/images/OCR/OCR_04.png,ocr_document,Chinese_OCR,medium,通知落款日期是什么？,落款日期是 2026 年 4 月 16 日。,short_text,self_document,测试中文通知中的日期读取。
+OCR_05,OCR_05_q1,data/images/OCR/OCR_05.png,ocr_paper,academic_OCR,medium,摘要中提到该方法在无噪声测试集上的测试准确率是多少？,无噪声测试集上的测试准确率是 100.00%。,number,self_collected,测试从摘要长段落中抽取关键数值。
+OCR_06,OCR_06_q1,data/images/OCR/OCR_06.png,ocr_bilingual_document,bilingual_OCR,medium,蓝色英文段落开头自我介绍的老师姓什么？,老师姓 Wang，英文写作 Mr. Wang。,short_text,self_document,测试彩色中英混排文本的 OCR。
+scene_01,scene_01_q1,data/images/scene/scene_01.jpg,scene_photo,object_recognition,easy,图中人手里拿着的红色物品是什么？,人手里拿着一个红色保温杯或水杯。,short_text,self_photo,测试日常物体识别。
+scene_02,scene_02_q1,data/images/scene/scene_02.jpg,scene_photo,scene_OCR,medium,墙上装裱的书法作品主要写着哪四个大字？,主要写着“大音希声”。,short_text,self_photo,测试场景照片中的中文书法识别。
+scene_03,scene_03_q1,data/images/scene/scene_03.jpg,scene_photo,counting,easy,图中有几块正在显示湖景桌面的屏幕？,有两块屏幕：一台笔记本屏幕和一台外接显示器。,number,self_photo,测试场景计数和显示内容识别。
+scene_04,scene_04_q1,data/images/scene/scene_04.jpg,scene_photo,hallucination_risk,medium,仅凭这张建筑照片，能否确定拍摄城市的准确名称？,不能。图中没有清晰提供足以确定拍摄城市的文字或地标信息。,no_answer,self_photo,反幻觉问题，避免模型编造地点。
+scene_05,scene_05_q1,data/images/scene/scene_05.jpg,scene_photo,scene_OCR,easy,图片中的影碟或包装属于哪个电影系列？,属于 The Lord of the Rings（指环王）系列。,short_text,self_photo,测试场景中的英文标题识别。
+scene_06,scene_06_q1,data/images/scene/scene_06.jpg,scene_photo,spatial_reasoning,easy,图中粉色盖子的容器旁边是否能看到金属门把手或门锁？,是。粉色盖子的容器旁边能看到金属门把手或门锁。,yes_no,self_photo,测试物体邻近关系和空间理解。
+scene_07,scene_07_q1,data/images/scene/scene_07.jpg,poster_photo,scene_OCR,easy,海报上的电影名称是什么？,电影名称是 F1 The Movie。,short_text,self_photo,测试海报文字识别。
+scene_08,scene_08_q1,data/images/scene/scene_08.jpg,scene_photo,object_recognition,easy,这些水果串主要放在什么颜色的托盘或盒子上？,主要放在白色托盘或白色盒子上。,short_text,self_photo,测试日常场景中的物体和颜色识别。
+scene_09,scene_09_q1,data/images/scene/scene_09.jpg,scene_photo,handwritten_OCR,medium,纸上手写英文句子的开头两个词是什么？,开头两个词是“if you”。,short_text,self_photo,测试手写英文 OCR。
+table_01,table_01_q1,data/images/table/table_01.png,table,table_understanding,medium,标签为 Inner_Race_014 的样本对应的故障位置和损伤直径是多少？,故障位置为内圈，损伤直径为 0.014 inch。,evidence_based_reasoning,self_collected,测试表格行定位和多列读取。
+table_02,table_02_q1,data/images/table/table_02.png,table,table_comparison,easy,Clean 数据集上测试准确率最高的模型是哪一个，准确率是多少？,MobileViT-S 最高，测试准确率为 100.00%。,short_text,self_collected,测试表格最大值识别。
+table_03,table_03_q1,data/images/table/table_03.png,table,table_understanding,easy,No noise 条件下测试准确率为 100.00 的模型是哪一个？,MobileViT-S 在 No noise 条件下的测试准确率为 100.00。,short_text,self_collected,测试表格指定列查找。
+table_04,table_04_q1,data/images/table/table_04.png,table,table_understanding,medium,InternVL3.5-38B 的 Vision Encoder 和总参数量分别是什么？,Vision Encoder 是 InternViT-6B，总参数量为 38.4B。,short_text,self_collected,测试英文表格中的行列对应关系。
+table_05,table_05_q1,data/images/table/table_05.png,table,table_comparison,hard,在 HumanEval 这一行中，哪个模型的分数最高，分数是多少？,Claude 3.5 Sonnet 的分数最高，为 92.0。,short_text,self_collected,测试宽表格中跨多列比较。
+table_06,table_06_q1,data/images/table/table_06.png,table,table_understanding,hard,在 MathVista mini 这一行中，Qwen2.5-VL 72B 的得分是多少？,Qwen2.5-VL 72B 在 MathVista mini 上的得分是 74.8。,number,self_collected,测试复杂论文表格中的指定单元格读取。
+ui_01,ui_01_q1,data/images/ui/ui_01.png,ui_screenshot,UI_understanding,easy,截图中央输入框上方显示的中文问题是什么？,显示的问题是“我们该在 try 中做什么？”。,short_text,self_screenshot,测试 UI 截图中的中文文本识别。
+ui_02,ui_02_q1,data/images/ui/ui_02.png,ui_screenshot,UI_understanding,easy,GitHub 页面左侧个人资料区显示的昵称是什么？,昵称是 City_Hunt。,short_text,self_screenshot,测试网页 UI 中的用户信息读取。
+ui_03,ui_03_q1,data/images/ui/ui_03.png,ui_screenshot,UI_understanding,medium,右侧 Trending 列表中排在第一位的模型名称是什么？,排在第一位的是 SulphurAI/Sulphur-2-base。,short_text,self_screenshot,测试网页列表区域的读取。
+ui_04,ui_04_q1,data/images/ui/ui_04.png,ui_screenshot,UI_understanding,easy,中间快捷提示中，“项目视图”的快捷键是什么？,“项目视图”的快捷键是 Alt+1。,short_text,self_screenshot,测试 IDE 欢迎页中的快捷键读取。
+ui_05,ui_05_q1,data/images/ui/ui_05.png,ui_screenshot,UI_understanding,easy,这个 VS Code 界面中，“打开文件”的快捷键是什么？,“打开文件”的快捷键是 Ctrl+O。,short_text,self_screenshot,测试 VS Code 欢迎页中的快捷键读取。

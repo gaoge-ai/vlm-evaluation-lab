@@ -216,3 +216,14 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+conda_env/
+*.pt
+*.pth
+*.safetensors
+*.bin
+cache/
+outputs/
+tmp/
+.DS_Store
+Thumbs.db
