@@ -177,7 +177,9 @@ tmp/
 .DS_Store
 Thumbs.db
 # Dataset images
-data/images/
+data/images/table/
+data/images/OCR/
+data/images/architecture/
 
 # IDE
 .idea/
