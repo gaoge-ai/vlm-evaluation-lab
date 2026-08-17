@@ -1,9 +1,3 @@
-#这份脚本采用的是 Hugging Face 官方推荐的
-#Qwen2_5_VLForConditionalGeneration、AutoProcessor 和 qwen_vl_utils.process_vision_info 这一套使用方式；
-#官方示例里也是用 chat template 组织图像和文本输入，再进行生成
-#pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128
-#pip install -U pandas pillow tqdm accelerate qwen-vl-utils
-#ip install git+https://github.com/huggingface/transformers
 import argparse
 import time
 import traceback
